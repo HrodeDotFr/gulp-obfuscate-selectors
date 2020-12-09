@@ -23,7 +23,7 @@ First and foremost:
 var gulp = require('gulp');
 var gs  = require('gulp-obfuscate-selectors');
 
-gulp.src(['src/**/*.css', 'src/**/*.html'])
+gulp.src(['src/**/*.css', 'src/**/*.html', 'src/**/*.js'])
     .pipe(gs.run())
     .pipe(gulp.dest('dist'));
 ```
@@ -39,7 +39,8 @@ will be empty:
 ```js
 gs.run({
     'css': ['css'],
-    'html': ['html']
+    'html': ['html'],
+    'js': ['js']
   }, {
   });
 ```
@@ -64,7 +65,7 @@ Two processors are built in for your convenience: `css` and `html` are stable bu
 
 - css: matches .selectors and #selectors
 - html: matches id="selector"s, class="selector"s, and for="selector"s
-- js: matches exact strings by looping through the library, which is dangerous if you use common words as selectors
+- js: matches .selectors and #selectors
 - remove-unused: should be run last, and only on stylesheets - it removes all declarations present in the library which haven't been used
 
 If a processor is listed which isn't built in, gulp-obfuscate-selectors will attempt to `require` it.
@@ -84,7 +85,7 @@ Calling `gs.run()` builds a library which persists for all processors used in th
 }
 ```
 
-`css` and `html` are built in. Additional processors referenced will be injected where needed so it is important to ensure all are installed. Processors are used like this:
+`css`, `html` and `js` are built in. Additional processors referenced will be injected where needed so it is important to ensure all are installed. Processors are used like this:
 
 ```js
 processor(file, classLibrary, idLibrary)
