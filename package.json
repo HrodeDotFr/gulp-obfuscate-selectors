@@ -1,0 +1,29 @@
+{
+  "name": "gulp-obfuscate-selectors",
+  "version": "0.1.1",
+  "description": "Minify CSS selectors",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp",
+    "plugin",
+    "selectors",
+    "styles",
+    "css",
+    "minify",
+    "obfuscate"
+  ],
+  "author": "Hrode",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.20",
+    "map-stream": "0.0.7",
+    "multimatch": "^5.0.0"
+  }
+}
